@@ -1,8 +1,8 @@
-## Welcome to GitHub Pages
+## Research Papers in a Nutshell
 
-You can use the [editor on GitHub](https://github.com/abhishah901/IR-project/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+### What we are trying to do?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Summarize research papers by extracting important sentences from them and using them to generate Presentations.
 
 ### Markdown
 
