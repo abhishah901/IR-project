@@ -80,5 +80,5 @@ window.onload = function(event){
     document.getElementsByTagName('body')[0].onscroll = scrolllistener;
     expandcollapse()
     attachEvents()
-    setparticles()
+    //setparticles()
 }
