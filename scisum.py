@@ -1,5 +1,5 @@
 # -- scisum --
-
+def scisum(){
 for link in new_d:
     counter=0
     #print(str(link))
@@ -20,3 +20,4 @@ for link in new_d:
     
     sum_name="Summary_"+str(counter)+".txt"
     write_summary(summary,sum_name)
+}
