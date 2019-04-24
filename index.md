@@ -6,5 +6,5 @@ Summarize research papers by extracting important sentences from them and using 
 
 ### Flowchart
 
-![Flowchart](https://github.com/abhishah901/IR-project/blob/master/Text%20Summarization%20Flowchart.png)
+![Flowchart](https://github.com/abhishah901/IR-project/blob/master/Text%20Summarization%20detailed%20flowchart.png)
 
