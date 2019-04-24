@@ -114,6 +114,7 @@ div#userinfobox {
 }
 
 .shrink div#biotext {
+    height: 0px;
     opacity: 0;
 }
 
@@ -309,10 +310,9 @@ div#projectscontent {
 }
 
 div#identifier {
-    position: relative;
-    /*bottom: 15px;*/
+    position: absolute;
+    bottom: 20px;
     left: 0;
-    margin-top:20px;
     pointer-events: all;
     transition: background 0.3s;
 }
