@@ -17,4 +17,4 @@ python main.py --summarizer=both --mode=test
 ```
 
 ## MODEL FLOWCHART
-![FLOWCHART](image/flowchart.png)
+![FLOWCHART](images/flowchart.png)
