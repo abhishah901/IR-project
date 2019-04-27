@@ -16,5 +16,5 @@ python main.py --summarizer=abstractive --mode=test
 python main.py --summarizer=both --mode=test
 ```
 
-## MODEL FLOWCHART
+## Model Flowchart
 ![FLOWCHART](images/flowchart.png)
