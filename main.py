@@ -1,57 +1,38 @@
-# -- imports --
-import importer.py
+from textrank import get_summary_per_section_textrank
+from lsa import get_summary_per_section_lsa
+from luhn import get_summary_per_section_luhn
+from edmund import get_summary_per_section_edmund
+from scisumm import parse_url_sentences
+from scisumm import get_urls
+from extractive_summarizer import *
+	
 
-
-summaries = []
-for url in new_d:
-    print("Summarizing URL : ",url)
-    summary = summarize_url(url,'textrank')
-    summaries.append(summary)
+def get_all_extractive_summaries(summname="textrank"):
+	summaries = []
+	for url in get_urls():
+		print("Summarizing URL : ",url)
+		summary = summarize_url(url,summname)
+		summaries.append(summary)
+	return summaries
     
+def extractive_summarizer():
+	for summname in ['textrank','lsa','luhn','edmund']:
+		summaries = get_all_extractive_summaries(summname)
+		summ_comb = []
+		for summ in summaries:
+			summ_comb.append(list(itertools.chain.from_iterable(summ)))
+
+		i = 0
+		for summ in summ_comb:
+			i += 1
+			f = open(summname+"\RSummary_"+str(i)+".txt","w",encoding="utf-8")
+			f.writelines([l+"\n" for l in summ])
+			f.close()
     
-summ_comb = []
-for summ in summaries:
-    summ_comb.append(list(itertools.chain.from_iterable(summ)))
-
-i = 0
-for summ in summ_comb:
-    i += 1
-    f = open("textrank/RSummary_"+str(i)+".txt","w",encoding="utf-8")
-    f.writelines([l+"\n" for l in summ])
-    f.close()
+	i = 0
+	for url in get_urls():
+		i += 1
+		parse_url_abstracts(url,i)
 
 
-def parse_url_abstracts(url,i):
-    dom = minidom.parse(urllib.request.urlopen(url))
-    sentences = []
-    list_sent = []
-    num_sents = []
-    abstract = dom.getElementsByTagName('SECTION')
-    f = open('abstract/ABSTRACT'+str(i)+".txt","w",encoding="UTF-8")
-    for sent in abstract[0].getElementsByTagName('S'):
-        f.write(sent.childNodes[0].nodeValue+"\n")
-    f.close()
-    
-i = 0
-for url in new_d:
-    i += 1
-    parse_url_abstracts(url,i)
-    
-    
-summary=[]
-
-for i in section:
-    sen=[]
-    
-    for j in i.getElementsByTagName('S'):
-        sen.append(j.childNodes[0].nodeValue)
-    document=tokenize(str(sen))
-    sentences=term_doc_matrix(document)
-    summary.append(sentences)
-print(summary)
-
-
-def write_summary(summary,name):
-    with open(name, 'w',encoding='utf-8') as f:
-        for item in summary:
-            f.write("%s\n" % summary)
+extractive_summarizer()
